@@ -38,9 +38,10 @@ namespace Avram_Alin_Lab2.Pages.Books
             {
                 return NotFound();
             }
-            //apelam PopulateAssignedCategoryData pentru o obtine informatiile necesare checkbox-
-            //urilor folosind clasa AssignedCategoryData
             PopulateAssignedCategoryData(_context, Book);
+            
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID",
+           "FullName");
             ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID",
            "PublisherName");
             return Page();
@@ -54,6 +55,7 @@ namespace Avram_Alin_Lab2.Pages.Books
                 return NotFound();
             }
             var bookToUpdate = await _context.Book
+            .Include(i => i.Author)
             .Include(i => i.Publisher)
             .Include(i => i.BookCategories)
             .ThenInclude(i => i.Category)

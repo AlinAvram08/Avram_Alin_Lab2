@@ -19,5 +19,7 @@ namespace Avram_Alin_Lab2.Data
         public DbSet<Avram_Alin_Lab2.Models.Publisher> Publisher { get; set; }
 
         public DbSet<Avram_Alin_Lab2.Models.Category> Category { get; set; }
+
+        public DbSet<Avram_Alin_Lab2.Models.Author> Author { get; set; }
     }
 }
