@@ -28,7 +28,7 @@ namespace Avram_Alin_Lab2.Pages.Categories
         public Category Category { get; set; }
         
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+       
         public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid)

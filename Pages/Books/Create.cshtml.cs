@@ -42,24 +42,19 @@ namespace Avram_Alin_Lab2.Pages.Books
                 newBook.BookCategories = new List<BookCategory>();
                 foreach (var cat in selectedCategories)
                 {
-                    var catToAdd = new BookCategory
+                    var catToAdd = new BookCategory()
                     {
                         CategoryID = int.Parse(cat)
                     };
                     newBook.BookCategories.Add(catToAdd);
                 }
             }
-            if (await TryUpdateModelAsync<Book>(
-            newBook,
-            "Book",
-            i => i.Title, i => i.Author,
-            i => i.Price, i => i.PublishingDate, i => i.PublisherID))
-            {
-                _context.Book.Add(newBook);
+           Book.BookCategories=newBook.BookCategories;  
+                _context.Book.Add(Book);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
-            }
-            PopulateAssignedCategoryData(_context, newBook);
+            
+            PopulateAssignedCategoryData(_context, Book);
             return Page();
         }
     }
