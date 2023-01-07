@@ -8,9 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Avram_Alin_Lab2.Data;
 using Avram_Alin_Lab2.Models;
 using Avram_Alin_Lab2.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Avram_Alin_Lab2.Pages.Publishers
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly Avram_Alin_Lab2.Data.Avram_Alin_Lab2Context _context;

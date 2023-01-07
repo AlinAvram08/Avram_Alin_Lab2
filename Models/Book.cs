@@ -17,8 +17,9 @@ namespace Avram_Alin_Lab2.Models
 
         public Author? Author { get; set; }
 
-        [Range(1, 300)]
+       
         [Column(TypeName = "decimal(6, 2)")]
+        [Range(0.01, 500)]
         public decimal Price { get; set; }
 
         [DataType(DataType.Date)]
